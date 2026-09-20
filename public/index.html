@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FoodBridge - Surplus Food Sharing Platform</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">🍲 FoodBridge</div>
+  <nav>
+    <button class="nav-btn" data-target="dashboard-view">Dashboard</button>
+    <button class="nav-btn" data-target="donations-view">Available Food</button>
+    <button class="nav-btn" data-target="donate-view">Donate Food</button>
+    <button class="nav-btn" data-target="history-view">My History</button>
+    <button class="nav-btn" id="auth-btn" data-target="auth-view">Login</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- DASHBOARD -->
+  <section id="dashboard-view" class="view active">
+    <h1>Community Impact Dashboard</h1>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-number" id="stat-total">0</span>
+        <span class="stat-label">Total Food Donations</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="stat-rescued">0</span>
+        <span class="stat-label">Food Rescued</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="stat-pending">0</span>
+        <span class="stat-label">Pending Pickup Requests</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="stat-volunteers">0</span>
+        <span class="stat-label">Active Volunteers</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVAILABLE DONATIONS -->
+  <section id="donations-view" class="view">
+    <h1>Available Surplus Food</h1>
+    <div id="donations-list" class="card-grid"></div>
+  </section>
+
+  <!-- DONATE FOOD FORM -->
+  <section id="donate-view" class="view">
+    <h1>Register Surplus Food</h1>
+    <form id="donate-form" class="form-card">
+      <label>Food Name
+        <input type="text" name="foodName" placeholder="e.g. Vegetable Biryani" required />
+      </label>
+      <label>Food Type
+        <select name="foodType">
+          <option value="veg">Veg</option>
+          <option value="non-veg">Non-Veg</option>
+          <option value="bakery">Bakery</option>
+          <option value="packaged">Packaged</option>
+          <option value="other">Other</option>
+        </select>
+      </label>
+      <label>Quantity
+        <input type="text" name="quantity" placeholder="e.g. 25 plates / 10 kg" required />
+      </label>
+      <label>Expiry / Consume-by Time
+        <input type="datetime-local" name="expiryTime" required />
+      </label>
+      <label>Pickup Address
+        <input type="text" name="pickupAddress" placeholder="Full pickup address" required />
+      </label>
+      <label>Contact Number
+        <input type="tel" name="contactNumber" placeholder="10-digit phone number" required />
+      </label>
+      <label>Notes (optional)
+        <textarea name="notes" placeholder="Any extra info for the volunteer"></textarea>
+      </label>
+      <button type="submit">Submit Donation</button>
+      <p id="donate-msg" class="msg"></p>
+    </form>
+  </section>
+
+  <!-- HISTORY -->
+  <section id="history-view" class="view">
+    <h1>My Donation / Pickup History</h1>
+    <div id="history-list" class="card-grid"></div>
+  </section>
+
+  <!-- AUTH -->
+  <section id="auth-view" class="view">
+    <div class="auth-tabs">
+      <button class="tab-btn active" data-tab="login">Login</button>
+      <button class="tab-btn" data-tab="register">Register</button>
+    </div>
+
+    <form id="login-form" class="form-card">
+      <label>Email <input type="email" name="email" required /></label>
+      <label>Password <input type="password" name="password" required /></label>
+      <button type="submit">Login</button>
+      <p id="login-msg" class="msg"></p>
+    </form>
+
+    <form id="register-form" class="form-card hidden">
+      <label>Full Name <input type="text" name="name" required /></label>
+      <label>Email <input type="email" name="email" required /></label>
+      <label>Password <input type="password" name="password" required /></label>
+      <label>Role
+        <select name="role">
+          <option value="donor">Donor (Hotel / Bakery / Event)</option>
+          <option value="volunteer">Volunteer</option>
+          <option value="ngo">NGO</option>
+        </select>
+      </label>
+      <label>Organization Name <input type="text" name="organizationName" /></label>
+      <label>Phone <input type="tel" name="phone" /></label>
+      <label>Address <input type="text" name="address" /></label>
+      <button type="submit">Register</button>
+      <p id="register-msg" class="msg"></p>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  <p>FoodBridge &copy; 2026 — Connecting surplus food to those who need it.</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
